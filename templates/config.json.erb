@@ -1,0 +1,12 @@
+{
+    "uwsgi":  {
+        "socket": "/tmp/uwsgi.<%= name %>.sock",
+        "master": true,
+        <% params.each do |key, value| %>"<%= key %>": <%= value %>,
+        <% end %>
+        "workers": <%= workers %>
+    }
+
+}
+
+
