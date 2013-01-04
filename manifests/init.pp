@@ -14,8 +14,6 @@ class uwsgi {
         notify => Class['uwsgi::service'],
     }
 
-    class { 'uwsgi::service': }
-
     anchor {'uwsgi::end':
         require => Class['uwsgi::service']
     }
