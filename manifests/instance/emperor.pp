@@ -1,5 +1,5 @@
 define uwsgi::instance::emperor(
-    $service = 'emperor.conf',
+    $service = 'emperor',
     $vassals = "${uwsgi::params::vassals}",
     $provider = '/etc/init',
     $runlevel_start = 2345,
@@ -16,11 +16,11 @@ define uwsgi::instance::emperor(
         recurse => true,
         content => template('uwsgi/uwsgi.conf.erb'),
         require => Class['uwsgi::package'],
-        location => "${provider}/${service}",
+        location => "${provider}/${service}.conf",
     }
 
     class { $service:
         require => File[$name],
-        notify => Uwsgi::Service::Emperor[$name]
+        notify => Uwsgi::Service::Emperor[$service]
     }
 }
