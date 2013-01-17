@@ -34,6 +34,6 @@ class uwsgi::package::debian {
 
     file {['/usr/lib/uwsgi', '/usr/lib/uwsgi/plugins']:
         ensure => directory,
-        require => Package['uwsgi'],
+        require => Exec['install_uwsgi_globally'],
     }
 }
