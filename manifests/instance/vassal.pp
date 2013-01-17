@@ -6,8 +6,8 @@ define uwsgi::instance::vassal(
 
 ) {
     File {
-        owner => $user,
-        group => $user,
+        owner => $uwsgi::params::user,
+        group => $uwsgi::params::user,
         mode  => '0644',
     }
 
