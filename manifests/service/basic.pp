@@ -5,12 +5,3 @@ class uwsgi::service::basic {
         require => Class['uwsgi::config'],
     }
 }
-
-define uwsgi::service (
-)
-    {
-    service { $name:
-        provider => upstart,
-        ensure   => running,
-    }
-}
