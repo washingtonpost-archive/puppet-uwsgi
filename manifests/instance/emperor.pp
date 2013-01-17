@@ -10,17 +10,18 @@ define uwsgi::instance::emperor(
         mode  => '0644',
     }
 
-    service { $service:
-        provider => upstart,
-        ensure   => running,
-    }
-
     file { $name:
         ensure  => present,
         recurse => true,
         content => template('uwsgi/uwsgi.conf.erb'),
-        require => Service[$service],
         path => "${provider}/${service}.conf",
     }
+
+    service { $service:
+        provider => upstart,
+        ensure   => running,
+        require => File[$name]
+    }
+
 
 }
