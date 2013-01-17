@@ -6,7 +6,7 @@ class uwsgi::service::basic {
     }
 }
 
-define uwsgi::service::emperor (
+define uwsgi::service (
 )
     {
     service { $name:
