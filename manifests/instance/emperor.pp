@@ -1,6 +1,5 @@
 define uwsgi::instance::emperor(
     $service = 'emperor',
-    $vassals = "${uwsgi::params::vassals}",
     $provider = '/etc/init',
     $runlevel_start = 2345,
     $runlevel_stop = 06,
