@@ -16,10 +16,8 @@ define uwsgi::instance::emperor(
         content => template('uwsgi/uwsgi.conf.erb'),
         require => Class['uwsgi::package'],
         location => "${provider}/${service}.conf",
+        notify => Uwsgi::Service::Emperor[$service]
+
     }
 
-    class { $service:
-        require => File[$name],
-        notify => Uwsgi::Service::Emperor[$service]
-    }
 }
