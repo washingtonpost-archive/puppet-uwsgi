@@ -21,7 +21,6 @@ define uwsgi::instance::emperor(
         content => template('uwsgi/uwsgi.conf.erb'),
         require => Service[$service],
         path => "${provider}/${service}.conf",
-        logoutput => true,
     }
 
 }
