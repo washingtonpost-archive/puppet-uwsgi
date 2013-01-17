@@ -14,10 +14,8 @@ define uwsgi::instance::emperor(
         ensure  => present,
         recurse => true,
         content => template('uwsgi/uwsgi.conf.erb'),
-        require => Class['uwsgi::package'],
+        require => Uwsgi::Service::Emperor[$service],
         path => "${provider}/${service}.conf",
-        notify => Uwsgi::Service::Emperor[$service]
-
     }
 
 }
