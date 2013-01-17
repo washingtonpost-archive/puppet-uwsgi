@@ -2,7 +2,6 @@ define uwsgi::instance::vassal(
     $emperor,
     $workers=2,
     $params={'pythonpath' => '["foo"]'},
-    $user = "${uwsgi::params::user}",
 
 ) {
     File {
