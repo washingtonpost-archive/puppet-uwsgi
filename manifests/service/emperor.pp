@@ -1,4 +1,4 @@
-define uwsgi::service::emperor (
+class uwsgi::service::emperor (
 )
     {
     service { $name:
