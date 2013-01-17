@@ -1,12 +1,13 @@
 define uwsgi::instance::vassal(
     $emperor,
     $workers=2,
-    $params={'pythonpath' => '["foo"]'}
+    $params={'pythonpath' => '["foo"]'},
+    $user = "${uwsgi::params::user}",
 
 ) {
     File {
-        owner => 'root',
-        group => 'root',
+        owner => $user,
+        group => $user,
         mode  => '0644',
     }
 
