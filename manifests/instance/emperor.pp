@@ -3,6 +3,7 @@ define uwsgi::instance::emperor(
     $provider = '/etc/init',
     $runlevel_start = 2345,
     $runlevel_stop = 06,
+    $user = 'www-data',
 ) {
     File {
         owner => 'root',
