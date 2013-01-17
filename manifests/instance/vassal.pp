@@ -15,7 +15,6 @@ define uwsgi::instance::vassal(
         recurse => true,
         content => template('uwsgi/config.json.erb'),
         require => Class['uwsgi::package'],
-        notify => Class['uwsgi::service'],
     }
 
 }
