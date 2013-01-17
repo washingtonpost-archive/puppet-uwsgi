@@ -1,4 +1,4 @@
-class uwsgi::config {
+class uwsgi::config inherits uwsgi::params {
 
     file {'/etc/default/uwsgi':
         ensure => present,
