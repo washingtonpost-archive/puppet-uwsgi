@@ -8,7 +8,7 @@ define uwsgi::instance::vassal(
         mode  => '0644',
     }
 
-    file {"/etc/uwsgi/apps-enabled/${name}.json":
+    file {"${emperor}/${name}.json":
         ensure  => present,
         recurse => true,
         content => template('uwsgi/config.json.erb'),

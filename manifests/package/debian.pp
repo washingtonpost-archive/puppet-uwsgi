@@ -26,7 +26,6 @@ class uwsgi::package::debian {
         require => Package['python-setuptools']
     }
 
-
     exec {'install_uwsgi_globally':
         command => '/usr/local/bin/pip install uwsgi',
         creates => '/usr/local/bin/uwsgi',

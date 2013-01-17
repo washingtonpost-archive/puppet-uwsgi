@@ -1,16 +1,26 @@
 define uwsgi::instance::emperor(
-    $conf='/etc/init/uwsgi.conf',
-    $vassals='/etc/uwsgi/apps-enabled',
+    $service = 'emperor.conf',
+    $vassals = "${uwsgi::params::vassals}",
+    $provider = '/etc/init',
+    $runlevel_start = 2345,
+    $runlevel_stop = 06,
 ) {
+    File {
+        owner => 'root',
+        group => 'root',
+        mode  => '0644',
+    }
 
-    file { $conf:
+    file { $name:
         ensure  => present,
         recurse => true,
         content => template('uwsgi/uwsgi.conf.erb'),
         require => Class['uwsgi::package'],
+        location => "${provider}/${service}",
     }
 
-    class { 'uwsgi::service::emperor':
-        require => File[$conf]
+    class { $service:
+        require => File[$name],
+        notify => Uwsgi::Service::Emperor[$name]
     }
 }

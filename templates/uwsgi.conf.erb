@@ -1,7 +1,7 @@
 # Emperor uWSGI script
 
 description "uWSGI Emperor"
-start on runlevel [2345]
-stop on runlevel [06]
+start on runlevel [<%= runlevel_start %>]
+stop on runlevel [<%= runlevel_stop %>]
 
 exec uwsgi --master --die-on-term --emperor

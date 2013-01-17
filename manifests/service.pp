@@ -6,8 +6,10 @@ class uwsgi::service::basic {
     }
 }
 
-class uwsgi::service::emperor {
-    service { 'uwsgi':
+define uwsgi::service::emperor (
+)
+    {
+    service { $name:
         provider => upstart,
         ensure   => running,
     }
