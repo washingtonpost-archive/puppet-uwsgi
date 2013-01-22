@@ -1,4 +1,4 @@
-class uwsgi::service {
+class uwsgi::service::basic {
     service {'uwsgi':
         ensure => running,
         enable => true,

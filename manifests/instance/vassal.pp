@@ -1,0 +1,20 @@
+define uwsgi::instance::vassal(
+    $emperor,
+    $workers=2,
+    $params={'pythonpath' => '["foo"]'},
+
+) {
+    File {
+        owner => $uwsgi::params::user,
+        group => $uwsgi::params::user,
+        mode  => '0644',
+    }
+
+    file {"${emperor}/${name}.json":
+        ensure  => present,
+        recurse => true,
+        content => template('uwsgi/config.json.erb'),
+        require => Class['uwsgi::package'],
+    }
+
+}
