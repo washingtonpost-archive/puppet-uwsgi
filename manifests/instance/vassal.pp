@@ -3,6 +3,7 @@ define uwsgi::instance::vassal(
     $workers=2,
     $params={'pythonpath' => '["foo"]'},
     $zerg=true,
+    $vassal_sos_backlog=10,
     $processes=1,
     $disable_logging=false,
     $idle=30,
