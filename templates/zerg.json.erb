@@ -1,0 +1,13 @@
+{
+    "zerg":  {
+        "socket": "/tmp/uwsgi.<%= name %>.zerg.sock",
+        "master": true,
+        <% params.each do |key, value| %>"<%= key %>": <%= value %>,
+        <% end %>
+        "processes": <%= processes %>,
+        "disable-logging": <%= disable_logging %>,
+        "idle": <%= idle_time %>,
+        "die-on-idle": <%= die_on_idle %>,
+    }
+
+}

@@ -2,8 +2,12 @@
     "uwsgi":  {
         "socket": "/tmp/uwsgi.<%= name %>.sock",
         "master": true,
+        "processes": <%= processes %>
         <% params.each do |key, value| %>"<%= key %>": <%= value %>,
         <% end %>
+        <% if zerg %>
+        "vassal-sos-backlog": "<%= vassal_sos_backlog %>",
+        "zerg-server": = "/tmp/uwsgi.<%= name %>.zerg.sock",<% end %>
         "workers": <%= workers %>
     }
 
