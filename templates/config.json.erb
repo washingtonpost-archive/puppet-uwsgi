@@ -9,8 +9,17 @@
         "vassal-sos-backlog": "<%= vassal_sos_backlog %>",
         "zerg-server": "/tmp/uwsgi.<%= name %>.zerg.sock",<% end %>
         "workers": <%= workers %>
+    }<% if zerg %>,"zerg":  {
+        "socket": "/tmp/uwsgi.<%= name %>.zerg.sock",
+        "master": true,
+        <% params.each do |key, value| %>"<%= key %>": <%= value %>,
+        <% end %>
+        "processes": <%= processes %>,
+        "disable-logging": <%= disable_logging %>,
+        "idle": <%= idle %>,
+        "die-on-idle": <%= die_on_idle %>
     }
-
+    <% end %>
 }
 
 
