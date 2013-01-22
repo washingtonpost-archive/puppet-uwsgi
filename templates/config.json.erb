@@ -2,7 +2,7 @@
     "uwsgi":  {
         "socket": "/tmp/uwsgi.<%= name %>.sock",
         "master": true,
-        "processes": <%= processes %>
+        "processes": <%= processes %>,
         <% params.each do |key, value| %>"<%= key %>": <%= value %>,
         <% end %>
         <% if zerg %>
