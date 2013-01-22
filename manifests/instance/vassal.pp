@@ -21,13 +21,4 @@ define uwsgi::instance::vassal(
         require => Class['uwsgi::package'],
     }
 
-    if ($zerg == true) {
-        file {"${emperor}/${name}.zerg.json":
-            ensure  => present,
-            recurse => true,
-            content => template('uwsgi/zerg.json.erb'),
-            require => Class['uwsgi::package'],
-        }
-    }
-
 }
