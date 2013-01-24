@@ -12,7 +12,7 @@ define uwsgi::instance::vassal(
     File {
         owner => $uwsgi::params::user,
         group => $uwsgi::params::user,
-        mode  => '0644',
+        mode  => '0664',
     }
     file {"${emperor}/${name}.json":
         ensure  => present,
