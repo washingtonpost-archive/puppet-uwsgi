@@ -3,6 +3,7 @@
         "socket": "/tmp/uwsgi.<%= name %>.sock",
         "master": true,
         "processes": <%= processes %>,
+        "buffer-size": <%= buffer_size %>,
         <% params.each do |key, value| %>"<%= key %>": <%= value %>,
         <% end %>
         <% if zerg %>
@@ -15,6 +16,7 @@
         <% params.each do |key, value| %>"<%= key %>": <%= value %>,
         <% end %>
         "processes": <%= processes %>,
+        "buffer-size": <%= buffer_size %>,
         "disable-logging": <%= disable_logging %>,
         "idle": <%= idle %>,
         "die-on-idle": <%= die_on_idle %>

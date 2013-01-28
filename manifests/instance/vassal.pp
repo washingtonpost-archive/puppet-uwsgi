@@ -5,6 +5,7 @@ define uwsgi::instance::vassal(
     $zerg=true,
     $vassal_sos_backlog=10,
     $processes=1,
+    $buffer_size=32768,
     $disable_logging=false,
     $idle=30,
     $die_on_idle=true
